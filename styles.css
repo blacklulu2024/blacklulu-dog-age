@@ -3,26 +3,41 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #1e1e2f;
-  color: #f5f5f5;
+  background: linear-gradient(-45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff);
+  background-size: 1400% 1400%;
+  animation: gradientBG 15s ease infinite;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  color: #fff;
 }
 
-/* 容器 */
+/* 漸層動畫 */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .container {
-  background: #2a2a3f;
+  background: rgba(0, 0, 0, 0.6);
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
   width: 90%;
-  max-width: 400px;
+  max-width: 450px;
   text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
 
-/* 頭圖樣式 */
 .header-img {
   width: 100%;
   height: auto;
@@ -30,20 +45,19 @@ body {
   margin-bottom: 20px;
 }
 
-/* 標題 */
 h1 {
   margin-bottom: 20px;
   font-size: 1.8em;
-  color: #e1c16e; /* 魔法金色感 */
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+  color: #ffd700;
+  text-shadow: 2px 2px 6px #000;
 }
 
-/* 表單樣式 */
 form label {
   display: block;
   margin-bottom: 8px;
   font-size: 1em;
 }
+
 form input[type="date"] {
   padding: 8px;
   width: 100%;
@@ -52,26 +66,32 @@ form input[type="date"] {
   margin-bottom: 12px;
   font-size: 1em;
 }
+
 form button {
   padding: 10px 20px;
   font-size: 1em;
   color: #2a2a3f;
-  background: #e1c16e;
+  background: #ffd700;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background 0.3s ease;
 }
+
 form button:hover {
-  background: #d4af5a;
+  background: #e6c200;
 }
 
-/* 結果區 */
-.results {
+.results,
+.history {
   margin-top: 20px;
-  font-size: 1.2em;
-}
-.results p {
-  margin: 8px 0;
+  font-size: 1.1em;
 }
 
+.history ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  text-align: left;
+  max-height: 150px;
+  overflow-y: auto;
+}
